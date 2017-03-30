@@ -55,7 +55,7 @@ gulp.task('less-task', function() {
         }))
         .pipe(cssmin())
         .pipe(gulp.dest(files.dist.less))
-        .pipe(gulp.dest('./src/styles'))
+        .pipe(gulp.dest('./dist/styles'))
         .pipe(reload({
             stream: true
         }));
