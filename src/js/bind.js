@@ -69,6 +69,10 @@ $('.push').addEventListener('click',() => {
         },
         success: function(res) {
             console.log(res);
+            if (JSON.parse(res.status_code === 200)) {
+                $('.card').className += ' vague-del';
+                $('.bind').style.display = 'none';
+            }
         }
     });
 });
