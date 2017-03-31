@@ -1,15 +1,11 @@
 "use strict";
-function $ (selector) {
+var $ = function (selector) {
     if (document.querySelectorAll(selector).length === 1) {
         return document.querySelector(selector);
     } else {
         return document.querySelectorAll(selector);
     }
 };
-
-
-
-
 
 var ajax = function (conf) {
     var method = conf.method;
@@ -34,30 +30,37 @@ var ajax = function (conf) {
     };
     
 };
-$(".card").addEventListener('click', () => {
-    //有坑 会动态改变 要在改变之前写入容器
-    let length = $('.cards').length;
-    let arr = $('.cards');
-    for(let i = 0; i < length; i++) {
-        arr[i].className += ' float'+i;
+
+console.log( $('.cards'));
+$('.card').addEventListener('click', () => {
+    let bindInfo = 0;
+    if (bindInfo) {
+        //有坑 会动态改变 要在改变之前写入容器
+        let length = $('.cards').length;
+        let arr = $('.cards');
+        for(let i = 0; i < length; i++) {
+            arr[i].className += ' float'+i;
+        }
+        setTimeout(() => {
+            let button = document.createElement('button');
+            let div1 = document.createElement('div');
+            let div2 = document.createElement('div');
+            div1.className = 'two';
+            div2.className = 'three';
+            button.className = 'receive';
+            button.innerHTML = '立即领取';
+            $('.card').appendChild(div1);
+            $('.card').appendChild(div2);
+            $('.card').appendChild(button);
+        },800)
+    } else {
+        $('.card').className += ' vague';
+        $('.bind').style.display = 'block';
+
     }
-    setTimeout(() => {
-        let button = document.createElement('button');
-        let div1 = document.createElement('div');
-        let div2 = document.createElement('div');
-        div1.className = 'two';
-        div2.className = 'three';
-        button.className = 'receive';
-        button.innerHTML = '立即领取';
-        $('.card').appendChild(div1);
-        $('.card').appendChild(div2);
-        $('.card').appendChild(button);
-    },800)
+
     
 });
-
-
-
 
 var countdown = 3;//一共三组
 var i = 0;
@@ -79,9 +82,6 @@ var flag = setInterval(function () {
         clearInterval(flag);
     }
 }, 200)
-
-
-
 
 ajax({
     url: '',
