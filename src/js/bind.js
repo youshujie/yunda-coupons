@@ -47,10 +47,29 @@ var flag = setInterval(function () {
     }
 }, 200)
 
-ajax({
-    url: '',
-    method: 'POST',
-    success: function(res) {
+$('.but').addEventListener('click', () => {
+    ajax({
+        url: 'http://nbvcv.com/app/index.php?i=2&c=entry&do=GetVerifyCode&m=apus_coupon',
+        method: 'POST',
+        data: {
+            phone_num: $('.iphone').value
+        },
+        success: function(res) {
+            console.log(res);
+            console.log($('.iphone').value);
+        }
+    });
+});
+$('.push').addEventListener('click',() => {
+    ajax({
+        url: 'http://nbvcv.com/app/index.php?i=2&c=entry&do=BindPhone&m=apus_coupon',
+        method: 'POST',
+        data: {
+            verify_code: $('.verification').value
+        },
+        success: function(res) {
+            console.log(res);
+        }
+    });
+});
 
-    }
-})

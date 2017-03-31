@@ -18,8 +18,8 @@ var ajax = function (conf) {
     if (method == 'GET' || method == 'get') {
         xhr.send(null);
     } else if (method == 'POST' || method == 'post') {
-        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-        xhr.send(data);
+        xhr.setRequestHeader('content-type', 'application/json');
+        xhr.send(JSON.stringify(data));
     }
 
     xhr.onreadystatechange = function () {
