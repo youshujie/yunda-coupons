@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-		<script type="text/javascript" src="../js/flexible.js"></script>
-	<link rel="stylesheet" type="text/css" href="../less/getCard.css">
+<style> 
+div
+{
+width:100px;
+height:100px;
+background:blue;
+transition: all 1s;
+-moz-transition:all 1s ease-in-out; /* Firefox 4 */
+-webkit-transition: all 1s ease-in-out; /* Safari and Chrome */
+-o-transition: all 1s ease-in-out; /* Opera */
+}
+
+div:hover
+{
+transform: scale(2);
+margin-left:100px;
+margin-top:100px;
+}
+</style>
 </head>
 <body>
-	<container>
-		<div class="get">
-			<div class="get-card">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-			</div>
-			<input type="button" value="立即领取" class="recieve">
-		</div>
-	</container>
+
+<div></div>
+
+<p>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。</p>
+
+<p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
+
 </body>
 </html>
