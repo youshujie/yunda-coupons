@@ -16,3 +16,25 @@ $(".card").addEventListener('click', () => {
 		arr[i].className = 'float';
 	}
 });
+
+var countdown = 3;//一共三组
+var i = 0;
+let imgs = $(".imgs");
+function animate() {
+    visible(imgs[i]);
+    visible(imgs[i + 1]);
+    i = i + 2;    
+}
+
+function visible(elem) {
+    elem.className = 'img-animation';
+}
+
+var flag = setInterval(function () {
+    animate();
+    countdown = countdown - 1;
+    if (countdown == 0) {
+        clearInterval(flag);
+    }
+}, 200)
+

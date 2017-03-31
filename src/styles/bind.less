@@ -27,20 +27,18 @@ container {
       margin-bottom: 30 /75rem;
       width: 325 /75rem;
       height: 241 /75rem;
-      translation: all 1s ease-in-out;
+      border-radius: 5 /75rem;
+      overflow: hidden;
       img {
         width: 325 /75rem;
         height: 241 /75rem;
+        // animation: .5s fadeIn;
+        // transition: opacity 1s 1s ease;
       }
     }
     .left {
       margin-right: 33 /75rem;
     }
-  // .topbar{
-  //   display: block;
-  //   height: 155/75rem;
-  //   background-color: #000;
-  // }
   }
   .bind {
     position: fixed;
@@ -124,4 +122,31 @@ container {
   -o-filter: blur(20px);   
   filter: blur(20px);   
 }
-
+.imgs {
+  opacity: 0;
+}
+.img-animation {
+  animation: .5s fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
