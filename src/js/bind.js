@@ -6,6 +6,30 @@ function $ (selector) {
         return document.querySelectorAll(selector);
     }
 };
+var ajax = function (conf) {
+    var method = conf.method;
+    var url = conf.url;
+    var success = conf.success;
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open(method, url, true);
+
+    if (method == 'GET' || method == 'get') {
+        xhr.send(null);
+    } else if (method == 'POST' || method == 'post') {
+        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+        xhr.send(data);
+    }
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            success(JSON.parse(xhr.responseText));
+        }
+    };
+    
+};
+
 // console.log($('.cards'));
 // console.log( $('.cards').length)
 $(".card").addEventListener('click', () => {
@@ -38,3 +62,10 @@ var flag = setInterval(function () {
     }
 }, 200)
 
+ajax({
+    url: '',
+    method: 'POST',
+    success: function(res) {
+
+    }
+})
